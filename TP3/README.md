@@ -1,32 +1,34 @@
 1) 
-	a) 
+a) 
 	Se puede notar que el tiempo de ejecucion de ambos programas 
 	varia entre los 4-5 segundos. No me parece posible predecir el
 	valor exacto del tiempo de ejecucion , pero si el rango en el que
 	se va a encontrar.
 	
-	b) 
+b) 
 	Mis tiempos de ejecucion          Tiempos de companiero
-	conhilos.py:
-	1- 4.05864                              1-
-	2- 4.03445                              2-
-	3- 4.06325                              3-
-	4- 4.11431                              4-
-	5- 4.08229                              5-
-	promedio:4.07059
-	sinhilos.py:
-	1- 5.28343                              1-
-	2- 5.31339                              2-
-	3- 5.27064                              3-
-	4- 5.35220                              4-
-	5- 5.25448                              5-
-	promedio: 5.29483
+	                    ---conhilos.py---
+	1- 4.05864                              1-4.03202
+	2- 4.03445                              2-4.04277
+	3- 4.06325                              3-4.06753
+	4- 4.11431                              4-4.03352
+	5- 4.08229                              5-4.03515
+	promedio: 4.07059                       promedio: 4.04220
+	
+	                    ---sinhilos.py---
+	1- 5.28343                              1- 5.44858
+	2- 5.31339                              2- 5.44056
+	3- 5.27064                              3- 5.46197
+	4- 5.35220                              4- 5.43627
+	5- 5.25448                              5- 5.44372
+	promedio: 5.29483                       promedio: 5.44622
 	
 	Los tiempos no son identicos, pero son parecidos. Si comparamos 
 	nuestros tiempos, podemos ver que los tiempos de ejecucion de mi 
-	companiero son mas rapidos en la ejecucion de ambos codigos.  
+	companiero son mas rapidos en la ejecucion del codigo con hilos
+	mientras que el codigo sin hilos se ejecuta mas rapido en mi caso.  
 	
-	c) 
+c) 
 	suma_resta tiempos de ejecucion con comentarios:
 	1 - 0.02124
 	2 - 0.02335
@@ -63,5 +65,5 @@
 	Parece ser que simplemente no use una cantidad de datos 
 	significativa para representar la diferencia entonces
 	se sesgaron mis resultados.
-	Entonces: Que paso? Nada realmente.
+	Entonces: Que paso? Se ejecuto el codigo normalmente.
 		  Por que? Por lo explicado anteriormente. 
