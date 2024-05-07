@@ -29,7 +29,7 @@ b)
 	mientras que el codigo sin hilos se ejecuta mas rapido en mi caso.  
 	
 c) 
-	suma_resta tiempos de ejecucion con comentarios:
+	suma_resta tiempos de ejecucion con comentarios activados:
 	1 - 0.02124
 	2 - 0.02335
 	3 - 0.02437
@@ -42,28 +42,29 @@ c)
 	10 - 0.02564
 	Promedio:  0.02442
 
-	suma_resta tiempos de ejecucion sin comentarios
-	1 - 0.02398
-	2 - 0.01890
-	3 - 0.02261
-	4 - 0.01868
-	5 - 0.02357
-	6 - 0.02002
-	7 - 0.02404
-	8 - 0.01864
-	9 - 0.02518
-	10 - 0.02203
-	Promedio: 0.02240
+	suma_resta tiempos de ejecucion con comentarios desactivados:
+	1 - 7.67227
+	2 - 8.22251
+	3 - 6.79561
+	4 - 7.70953
+	5 - 7.82679
+	6 - 5.87925
+	7 - 7.36159
+	8 - 7.81554
+	9 - 7.76129
+	10 - 7.32242
+	Promedio: 7.43668
 	
-	El tiempo de ejecucion sin comentarios tuvo una disminucion del
-	8.3% de tiempo de ejecucion. Ademas, paso de estar siempre por 
-	encima de 0.021 a poder estar por debajo en 4/10 casos.
-	Me parecio que no tenia sentido esto, asi que investigue
-	y al parecer los comentarios no afectan el tiempo de ejecucion
-	de un codigo python porque el interprete de python directamente
-	ignora los comentarios durante la ejecucion. 
-	Parece ser que simplemente no use una cantidad de datos 
-	significativa para representar la diferencia entonces
-	se sesgaron mis resultados.
-	Entonces: Que paso? Se ejecuto el codigo normalmente.
-		  Por que? Por lo explicado anteriormente. 
+	El codigo con los comentarios desactivados tuvo un incremento de
+	mas del 30,000% en el tiempo de ejecucion y ademas el resultado 
+	paso de ser 0 a ser otro numero. Esto sucede porque al agregar un 
+	for loop con 1000 iteraciones en ambas funciones, se sobrecarga 
+	el procesador causando que el planificador de tareas cometa muchos 
+	mas errores a la hora de dividir equitativamente la suma y la resta. 
+	Por eso el acumulador pasa de ser 0 casi siempre a ser cualquier otro 
+	numero mucho mas grande. Ejecutando este codigo siempre hay una
+	posibilidad de mostrar al acumulador cuando no es 0, al agregar el for 
+	loop, se incrementa la posibilidad de que un hilo se interponga ante 
+	otro por la sobrecarga del CPU y por eso se muestra un numero que no 
+	es 0 con mucha mas frecuencia.  
+
