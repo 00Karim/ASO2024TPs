@@ -1,3 +1,4 @@
+```console
 1) 
 a) 
 	Se puede notar que el tiempo de ejecucion de ambos programas 
@@ -68,3 +69,4 @@ c)
 	otro por la sobrecarga del CPU y por eso se muestra un numero que no 
 	es 0 con mucha mas frecuencia.  
 
+```
