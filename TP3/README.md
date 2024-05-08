@@ -71,9 +71,9 @@ c)
 
 EJERCICIO 2)
 a)
-	Codigo race condition solucionado
-	
-	```console c
+
+	Codigo race condition solucionado	
+	 
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -86,7 +86,7 @@ void *comer_hamburguesa(void *tid)
 {
 	while (1 == 1)
 	{   //printf("\nTID: %d\n", tid); --> Probando el programa
-		while(turno!=(int)tid);
+		while(turno!=(int)tid); //APLICAMOS LA LOGICA DE BUSY WAITING PARA LOGRAR QUE LOS PROCESOS NO SE ENCUENTREN EN LA REGION CRITICA. 
 		{
         // INICIO DE LA ZONA CRÍTICA
 			if (cantidad_restante_hamburguesas > 0)
@@ -94,7 +94,7 @@ void *comer_hamburguesa(void *tid)
 				printf("Hola! soy el hilo(comensal) %d , me voy a comer una hamburguesa ! ya que todavia quedan %d \n", (int) tid, cantidad_restante_hamburguesas);
 				cantidad_restante_hamburguesas--; // me como una hamburguesa
 				//printf("Turno = %d + 1 // %d", turno, NUMBER_OF_THREADS); --> Probando el programa
-				turno = (turno + 1)% NUMBER_OF_THREADS;
+				turno = (turno + 1)% NUMBER_OF_THREADS; // ESTA SERIA LA VARIABLE TURNO Y CAUSARIA LA ALTERNANCIA ENTRE LOS HILOS GRACIAS A LA CONDICION QUE ESTARIA AYUDANDO A CUMPLIR EN EL WHILE LOOP
 				//printf("\nTURNO: %d\n", turno); --> Probando el programa
 			}
 			else
@@ -134,4 +134,4 @@ int main(int argc, char *argv[])
 
 
 ```
-```
+
