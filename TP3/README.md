@@ -70,68 +70,27 @@ c)
 	es 0 con mucha mas frecuencia.  
 
 EJERCICIO 2)
-a)
 
-	Codigo race condition solucionado	
-	 
-#include <pthread.h>
-#include <stdio.h>
-#include <stdlib.h>
-#define NUMBER_OF_THREADS 2
-#define CANTIDAD_INICIAL_HAMBURGUESAS 20
-int cantidad_restante_hamburguesas = CANTIDAD_INICIAL_HAMBURGUESAS;
-int turno = 0;
+b)
+	Seria la misma imagen, pero repetida 8 veces mas. Luego del punto t4
+	se repetiria la secuencia empezando desde t1 hasta t4 y asi 
+	sucesivamente 8 veces en total. 
+	El proceso A seria el comensal 1 y el proceso B seria el comensal 0.
+	Ademas, los procesos tendrian que tener el mismo largo en el diagrama
+	ya que ambos procesos hacen lo mismo y normalmente tardarian lo mismo.
+	Tambien tendriamos que borrar lo que dice que "B se bloque" porque
+	en el caso de nuestro codigo (la version arreglada), en ningun momento
+	el proceso 1 se choca con el proceso 0 porque arreglamos esto con la
+	estrategia busy waiting. 
+	Otro detalle que podriamos agregar es que T1 estaria representando
+	el momento en el que turno = 0 y T2 cuando el turno = 1. 
 
-void *comer_hamburguesa(void *tid)
-{
-	while (1 == 1)
-	{   //printf("\nTID: %d\n", tid); --> Probando el programa
-		while(turno!=(int)tid); //APLICAMOS LA LOGICA DE BUSY WAITING PARA LOGRAR QUE LOS PROCESOS NO SE ENCUENTREN EN LA REGION CRITICA. 
-		{
-        // INICIO DE LA ZONA CRÍTICA
-			if (cantidad_restante_hamburguesas > 0)
-			{
-				printf("Hola! soy el hilo(comensal) %d , me voy a comer una hamburguesa ! ya que todavia quedan %d \n", (int) tid, cantidad_restante_hamburguesas);
-				cantidad_restante_hamburguesas--; // me como una hamburguesa
-				//printf("Turno = %d + 1 // %d", turno, NUMBER_OF_THREADS); --> Probando el programa
-				turno = (turno + 1)% NUMBER_OF_THREADS; // ESTA SERIA LA VARIABLE TURNO Y CAUSARIA LA ALTERNANCIA ENTRE LOS HILOS GRACIAS A LA CONDICION QUE ESTARIA AYUDANDO A CUMPLIR EN EL WHILE LOOP
-				//printf("\nTURNO: %d\n", turno); --> Probando el programa
-			}
-			else
-			{
-				printf("SE TERMINARON LAS HAMBURGUESAS :( \n");
+	
+c)
 
-				pthread_exit(NULL); // forzar terminacion del hilo
-			}
-		}
-	// SALIDA DE LA ZONA CRÍTICA
+	IMAGEN DE LA FIGURA 2.22
 
-	}
-}
-
-int main(int argc, char *argv[])
-{
-	pthread_t threads[NUMBER_OF_THREADS];
-	int status, i, ret;
-	for (int i = 0; i < NUMBER_OF_THREADS; i++)
-	{
-		printf("Hola!, soy el hilo principal. Estoy creando el hilo %d \n", i);
-		status = pthread_create(&threads[i], NULL, comer_hamburguesa, (void *)i);
-		if (status != 0)
-		{
-			printf("Algo salio mal, al crear el hilo recibi el codigo de error %d \n", status);
-			exit(-1);
-		}
-	}
-
-	for (i = 0; i < NUMBER_OF_THREADS; i++)
-	{
-		void *retval;
-		ret = pthread_join(threads[i], &retval); // espero por la terminacion de los hilos que cree
-	}
-	pthread_exit(NULL); // como los hilos que cree ya terminaron de ejecutarse, termino yo tambien.
-}
-
-
+	CODIGO FUNCIONAL 
+	
 ```
 
