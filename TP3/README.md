@@ -6,28 +6,30 @@ a)
 	valor exacto del tiempo de ejecucion , pero si el rango en el que
 	se va a encontrar.
 	
-b) 
-	Mis tiempos de ejecucion          Tiempos de companiero
+b)  
+   Mis tiempos de ejecucion         |         Tiempos de companiero
 	                    ---conhilos.py---
-	1- 4.05864                              1-4.03202
-	2- 4.03445                              2-4.04277
-	3- 4.06325                              3-4.06753
-	4- 4.11431                              4-4.03352
-	5- 4.08229                              5-4.03515
-	promedio: 4.07059                       promedio: 4.04220
-	
+	1- 4.05864                  |              1-4.03202
+	2- 4.03445                  |              2-4.04277
+	3- 4.06325                  |              3-4.06753
+	4- 4.11431                  |              4-4.03352
+	5- 4.08229                  |              5-4.03515
+	promedio: 4.07059           |              promedio: 4.04220
+				    |
 	                    ---sinhilos.py---
-	1- 5.28343                              1- 5.44858
-	2- 5.31339                              2- 5.44056
-	3- 5.27064                              3- 5.46197
-	4- 5.35220                              4- 5.43627
-	5- 5.25448                              5- 5.44372
-	promedio: 5.29483                       promedio: 5.44622
+	1- 5.28343                  |              1- 5.44858
+	2- 5.31339                  |              2- 5.44056
+	3- 5.27064                  |              3- 5.46197
+	4- 5.35220                  |              4- 5.43627
+	5- 5.25448                  |              5- 5.44372
+	promedio: 5.29483           |              promedio: 5.44622
 	
 	Los tiempos no son identicos, pero son parecidos. Si comparamos 
 	nuestros tiempos, podemos ver que los tiempos de ejecucion de mi 
 	companiero son mas rapidos en la ejecucion del codigo con hilos
-	mientras que el codigo sin hilos se ejecuta mas rapido en mi caso.  
+	mientras que el codigo sin hilos se ejecuta mas rapido en mi caso.
+	Por otro lad, en ambos casos, el codigo con hilos es mas rapido que el 
+	codigo sin hilos.  
 	
 c) 
 	suma_resta tiempos de ejecucion con comentarios activados:
@@ -78,10 +80,11 @@ b)
 	El proceso A seria el comensal 1 y el proceso B seria el comensal 0.
 	Ademas, los procesos tendrian que tener el mismo largo en el diagrama
 	ya que ambos procesos hacen lo mismo y normalmente tardarian lo mismo.
-	Tambien tendriamos que borrar lo que dice que "B se bloque" porque
+	Tambien tendriamos que borrar lo que dice que "B se bloquea" porque
 	en el caso de nuestro codigo (la version arreglada), en ningun momento
 	el proceso 1 se choca con el proceso 0 porque arreglamos esto con la
-	estrategia busy waiting. 
+	estrategia busy waiting entonces la regiones criticas de cada proceso 
+	son exclusivas. 
 	Otro detalle que podriamos agregar es que T1 estaria representando
 	el momento en el que turno = 0 y T2 cuando el turno = 1. 
 
@@ -94,7 +97,7 @@ c)
 		https://github.com/00Karim/ASO2024TPs/blob/master/TP3/assetsTP3/race_condition_solucionado.c
 		(a la hora de compilar el codigo, no me funciono el enlace con la biblioteca pthread asi que 
 		lo tuve que hacer manualmente. Entonces si les ocurre el mismo error, enlazarlo manualmente
-		lo solucionaria 
+		en la terminal lo solucionaria) 
 	
 ```
 
