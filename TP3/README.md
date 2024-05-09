@@ -86,11 +86,15 @@ b)
 	el momento en el que turno = 0 y T2 cuando el turno = 1. 
 
 	
-c)
-
+c)	
 	IMAGEN DE LA FIGURA 2.22
-
-	CODIGO FUNCIONAL 
+		https://github.com/00Karim/ASO2024TPs/blob/master/TP3/assetsTP3/diagramaTP3.jpg
+	
+	CODIGO race_condition FUNCIONAL
+		https://github.com/00Karim/ASO2024TPs/blob/master/TP3/assetsTP3/race_condition_solucionado.c
+		(a la hora de compilar el codigo, no me funciono el enlace con la biblioteca pthread asi que 
+		lo tuve que hacer manualmente. Entonces si les ocurre el mismo error, enlazarlo manualmente
+		lo solucionaria 
 	
 ```
 
