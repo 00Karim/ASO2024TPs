@@ -74,7 +74,7 @@ c)
 EJERCICIO 2)
 
 b)
-	Seria la misma imagen, pero repetida 8 veces mas. Luego del punto t4
+	Seria la misma imagen, pero repetida 4 veces mas. Luego del punto t4
 	se repetiria la secuencia empezando desde t1 hasta t4 y asi 
 	sucesivamente 8 veces en total. 
 	El proceso A seria el comensal 1 y el proceso B seria el comensal 0.
