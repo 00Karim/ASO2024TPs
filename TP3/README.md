@@ -63,13 +63,20 @@ c)
 	paso de ser 0 a ser otro numero. Esto sucede porque al agregar un 
 	for loop con 1000 iteraciones en ambas funciones, se sobrecarga 
 	el procesador causando que el planificador de tareas cometa muchos 
-	mas errores a la hora de dividir equitativamente la suma y la resta. 
-	Por eso el acumulador pasa de ser 0 casi siempre a ser cualquier otro 
-	numero mucho mas grande. Ejecutando este codigo siempre hay una
+	mas errores a la hora de dividir equitativamente la suma y la resta.
+	En este contexto, el error/descuido que causa esto, es conocido 
+	como race condition, ocurre cuando dos procesos intentan acceder al 
+	mismo dato al mismo tiempo. En este caso el dato vendria a seria la
+	variable acumulador y los procesos son la funcion sumador() y la 
+	funcion restador().  
+	Por eso (porque ambos procesos se pelean por entrar a la zona critica
+	y termina siendo practicamente aleatorio quien entra primero), el 
+	acumulador pasa de ser 0 casi siempre a ser cualquier otro 
+	numero mucho mas grande. Ejecutando este codigo, siempre hay una
 	posibilidad de mostrar al acumulador cuando no es 0, al agregar el for 
-	loop, se incrementa la posibilidad de que un hilo se interponga ante 
-	otro por la sobrecarga del CPU y por eso se muestra un numero que no 
-	es 0 con mucha mas frecuencia.  
+	loop, se incrementa la posibilidad de que un hilo entre antes que otro
+	a la zona critica por la sobrecarga del CPU y por eso se muestra un 
+	numero que no es 0 con mucha mas frecuencia.  
 
 EJERCICIO 2)
 
@@ -85,7 +92,7 @@ b)
 	el proceso 1 se choca con el proceso 0 porque arreglamos esto con la
 	estrategia busy waiting entonces la regiones criticas de cada proceso 
 	son exclusivas. 
-	Otro detalle que podriamos agregar es que T1 estaria representando
+	Otro detalle que podriamos agregar es que T1 estaria representando1
 	el momento en el que turno = 0 y T2 cuando el turno = 1. 
 
 	
