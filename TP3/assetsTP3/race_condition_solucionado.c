@@ -17,14 +17,11 @@ void *comer_hamburguesa(void *tid)
 			{
 				printf("Hola! soy el hilo(comensal) %d , me voy a comer una hamburguesa ! ya que todavia quedan %d \n", (int) tid, cantidad_restante_hamburguesas);
 				cantidad_restante_hamburguesas--; // me como una hamburguesa
-				//printf("Turno = %d + 1 // %d", turno, NUMBER_OF_THREADS); --> Probando el programa
-				turno = (turno + 1)% NUMBER_OF_THREADS; // ESTA SERIA LA VARIABLE TURNO Y CAUSARIA LA ALTERNANCIA ENTRE LOS HILOS GRACIAS A LA CONDICION QUE ESTARIA AYUDANDO A CUMPLIR EN EL WHILE LOOP
-				//printf("\nTURNO: %d\n", turno); --> Probando el programa
 			}
 			else
 			{
 				printf("SE TERMINARON LAS HAMBURGUESAS :( \n");
-
+				turno = (turno + 1) % NUMBER_OF_THREADS;// ESTA SERIA LA VARIABLE TURNO Y CAUSARIA LA ALTERNANCIA ENTRE LOS HILOS GRACIAS A LA CONDICION QUE ESTARIA AYUDANDO A CU>
 				pthread_exit(NULL); // forzar terminacion del hilo
 			}
 		}
