@@ -29,7 +29,7 @@ void *comer_hamburguesa(void *tid)
 			}
 		}
 	// SALIDA DE LA ZONA CRÍTICA
-
+			turno = (turno + 1)% NUMBER_OF_THREADS;
 	}
 }
 

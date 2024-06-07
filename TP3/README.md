@@ -81,24 +81,28 @@ c)
 EJERCICIO 2)
 
 b)
-	Seria la misma imagen, pero repetida 4 veces mas. Luego del punto t4
-	se repetiria la secuencia empezando desde t1 hasta t4 y asi 
-	sucesivamente 8 veces en total. 
-	El proceso A seria el comensal 1 y el proceso B seria el comensal 0.
-	Ademas, los procesos tendrian que tener el mismo largo en el diagrama
-	ya que ambos procesos hacen lo mismo y normalmente tardarian lo mismo.
-	Tambien tendriamos que borrar lo que dice que "B se bloquea" porque
-	en el caso de nuestro codigo (la version arreglada), en ningun momento
-	el proceso 1 se choca con el proceso 0 porque arreglamos esto con la
-	estrategia busy waiting entonces la regiones criticas de cada proceso 
-	son exclusivas. 
-	Otro detalle que podriamos agregar es que T1 estaria representando1
-	el momento en el que turno = 0 y T2 cuando el turno = 1. 
+	La imagen estaria formada por 2 lineas horizontales y paralelas, una
+	linea seria el comensal 1 (proceso 1/hilo 1) y la otra el comensal 0
+	(proceso 0/hilo 0). La linea de ambos comensales estaria dividida
+	equitativamente en 8 partes de igual tamano. En el caso de el comensal
+	1, la linea empezaria con la primera division de la linea representando
+	una entrada a la zona critica y la segunda division una espera. Las 
+	divisiones siguientes irian intercalandose entre zona critica y espera
+	hasta que ya no queden mas divisiones. La linea del comensal 1 cumpliria
+	con la misma caracteristica de divisiones intercaladas, pero en vez de
+	la primera division corresponder a zona critica, corresponderia a
+	espera. 
+	Vale destacar que, en el caso de nuestro codigo (la version arreglada),
+	en ningun momento el proceso 1 se choca con el proceso 0 porque 
+	arreglamos esto con la estrategia busy waiting entonces la regiones 
+	criticas de cada proceso son exclusivas, por eso en ningun lugar del
+	diagrama vamos a poner "El proceso tal se bloquea" porque simplemente
+	lo estamos poniendo en espera, no se esta bloqueando. 
 
 	
 c)	
 	IMAGEN DE LA FIGURA 2.22
-		https://github.com/00Karim/ASO2024TPs/blob/master/TP3/assetsTP3/diagramaTP3.jpg
+		https://github.com/00Karim/ASO2024TPs/blob/master/TP3/assetsTP3/diagramaTP3.png
 	
 	CODIGO race_condition FUNCIONAL
 		https://github.com/00Karim/ASO2024TPs/blob/master/TP3/assetsTP3/race_condition_solucionado.c
@@ -107,4 +111,3 @@ c)
 		en la terminal lo solucionaria) 
 	
 ```
-
